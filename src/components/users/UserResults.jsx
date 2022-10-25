@@ -1,3 +1,4 @@
+import Spinner from "components/layout/Spinner"
 import { GITHUB_URL } from "env"
 import { useState } from "react"
 import { useEffect } from "react"
@@ -25,7 +26,7 @@ function UserResults() {
 			</div>
 		)
 	} else {
-		return <h3>Loading...</h3>
+		return <Spinner />
 	}
 }
 
