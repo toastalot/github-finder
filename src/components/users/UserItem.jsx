@@ -1,4 +1,4 @@
-import { GITHUB_URL } from "env"
+import { GITHUB_URL } from "../../env"
 import { Link } from "react-router-dom"
 
 function UserItem({ user }) {
