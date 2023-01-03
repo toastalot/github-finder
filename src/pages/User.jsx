@@ -40,7 +40,7 @@ function User() {
 
 				<div className="grid grid-cols-1 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-3 mb-8 md:gap-8">
 					<div className="custom-card-image mb-6 md:mb-0">
-						<div className="rounded-lg shadow-xl card image-full">
+						<div className="rounded-lg shadow-xl card image-full max-w-fit">
 							<figure>
 								<img src={avatar_url} alt="" />
 							</figure>
@@ -81,33 +81,44 @@ function User() {
 
 				<div className="w-full py-5 mb-6 stats">
 					<div className="grid grid-cols-1 md:grid-cols-3">
-						<div className="stat">
-							<div className="stat-figure text-secondary">
+						<div className="grid grid-cols-3">
+							<div className="text-secondary justify-self-end self-center">
 								<FaUsers className="text-3xl md:text-5xl" />
 							</div>
-							<div className="stat-title pr-5">Followers</div>
-							<div className="stat-value pr-5 text-3xl md:text-4xl">
-								{followers}
+
+							<div className="stat">
+								<div className="stat-title pr-5">Followers</div>
+								<div className="stat-value pr-5 text-3xl md:text-4xl">
+									{followers}
+								</div>
 							</div>
 						</div>
 
-						<div className="stat">
-							<div className="stat-figure text-secondary">
+						<div className="grid grid-cols-3">
+							<div className="text-secondary justify-self-end self-center">
 								<FaUserFriends className="text-3xl md:text-5xl" />
 							</div>
-							<div className="stat-title pr-5">Following</div>
-							<div className="stat-value pr-5 text-3xl md:text-4xl">
-								{following}
+
+							<div className="stat">
+								<div className="stat-title pr-5">Following</div>
+								<div className="stat-value pr-5 text-3xl md:text-4xl">
+									{following}
+								</div>
 							</div>
 						</div>
 
-						<div className="stat">
-							<div className="stat-figure text-secondary">
+						<div className="grid grid-cols-3">
+							<div className="text-secondary justify-self-end self-center">
 								<FaCodepen className="text-3xl md:text-5xl" />
 							</div>
-							<div className="stat-title pr-5">Public Repos</div>
-							<div className="stat-value pr-5 text-3xl md:text-4xl">
-								{public_repos}
+
+							<div className="stat">
+								<div className="stat-title pr-5">
+									Public Repos
+								</div>
+								<div className="stat-value pr-5 text-3xl md:text-4xl">
+									{public_repos}
+								</div>
 							</div>
 						</div>
 					</div>
