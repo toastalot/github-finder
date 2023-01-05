@@ -4,14 +4,28 @@ import { useEffect } from "react"
 import { useContext } from "react"
 import { Link, useParams } from "react-router-dom"
 import GithubContext from "../context/github/GithubContext"
+import { useState } from "react"
+import { GITHUB_URL } from "../env"
 
 function User() {
-	const { getUser, user, isLoading } = useContext(GithubContext)
+	const [user, setUser] = useState("")
+
+	const fetchUser = async (login) => {
+		// setLoading() // **** todo - create loadingContext to move this out of githubcontext
+		const response = await fetch(`${GITHUB_URL}/users/${login}`)
+
+		if (response.status == 404) {
+			window.location = "/notfound"
+		} else {
+			const data = await response.json()
+			setUser(data)
+		}
+	}
 
 	const params = useParams()
 
 	useEffect(() => {
-		getUser(params.login)
+		fetchUser(params.login)
 	}, [])
 
 	const {
@@ -27,7 +41,7 @@ function User() {
 		hireable,
 	} = user
 
-	if (isLoading) return <Spinner />
+	// if (isLoading) return <Spinner /> // **** todo - bring back when loadingContext created
 
 	return (
 		<>
